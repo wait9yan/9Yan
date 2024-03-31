@@ -1,0 +1,16 @@
+@import 'tailwind/_base.css';
+@import 'tailwind/_components.css';
+@import 'tailwind/_utilities.css';
+
+:root {
+    --header-position: sticky;
+    --header-color: #444;
+}
+
+@layer base {
+    @font-face {
+        font-family: art-regular;
+        font-weight: 400;
+        src: url(/public/font/Pacifico-Regular-all.ttf) format('truetype');
+    }
+}
