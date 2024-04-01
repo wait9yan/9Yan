@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-29 09:59:53
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-03-29 11:44:22
+ * @LastEditTime : 2024-04-01 16:26:57
  * @FilePath     : \9Yan\src\components\BaseButton.vue
  * @Description  : 
 -->
@@ -67,9 +67,8 @@ const computedType = computed(() => {
 
 const componentClass = computed(() => {
     const base = [
-        'size-10',
         'inline-flex justify-center items-center',
-        'whitespace-nowrap',
+        // 'whitespace-nowrap',
         'bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200',
         'ring-1 ring-slate-900/5',
         'shadow-lg shadow-slate-800/5',
