@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-26 14:02:10
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-01 13:02:29
+ * @LastEditTime : 2024-04-01 13:46:04
  * @FilePath     : \9Yan\src\components\TheNavigator.vue
  * @Description  : 头部
 -->
@@ -22,12 +22,13 @@ const { scrollTop } = storeToRefs(mainStore);
 
 let iconUi = ref(null); // 头像UI
 let iconUiScale = ref(2); // 头像缩放大小
+let iconOpacity = ref(true);
 let navUi = ref(null); // 导航栏UI
 let navUiRect = ref(null); // 导航栏UI位置
 let navUiMouseRelativeX = ref(0); // 导航栏鼠标效果相对x坐标
 let navUiMouseRelativeY = ref(0); // 导航栏鼠标效果相对y坐标
 
-let headerHeight = ref(168); // 头高度
+let headerHeight = ref(188); // 头高度
 let headerMarginBottom = ref(null); //头外下边距
 let headerStyle = ref(null); //头样式
 
@@ -40,14 +41,17 @@ const handleScroll = () => {
         iconUiScale.value = 2 - scrollTop.value / 100;
     }
     iconUi.value.style.transform = `scale(${iconUiScale.value})`;
+    if (scrollTop.value > 188 - 64) {
+        iconOpacity.value = false;
+    } else {
+        iconOpacity.value = true;
+    }
 
     // 处理头部高度
     if (scrollTop.value > lastScrollTop.value + 0.1) {
         ScrollDown();
-        lastScrollTop.value = scrollTop.value <= 0 ? 0 : scrollTop.value;
     } else if (scrollTop.value < lastScrollTop.value - 0.1) {
         ScrollUp();
-        lastScrollTop.value = scrollTop.value <= 0 ? 0 : scrollTop.value;
     }
 
     headerStyle.value = {
@@ -57,21 +61,23 @@ const handleScroll = () => {
 };
 
 const ScrollDown = () => {
-    if (scrollTop.value > 168 && navUiRect.value.bottom < -6) {
+    if (scrollTop.value > 188 && navUiRect.value.bottom < -6) {
         headerHeight.value = scrollTop.value - 6;
-        headerMarginBottom.value = 168 - scrollTop.value;
+        headerMarginBottom.value = 188 - scrollTop.value;
     }
+    lastScrollTop.value = scrollTop.value <= 0 ? 0 : scrollTop.value;
 };
 
 const ScrollUp = () => {
-    if (scrollTop.value > 104 && headerHeight.value > scrollTop.value + 64 + 6) {
+    if (scrollTop.value > 188 - 64 && headerHeight.value > scrollTop.value + 64 + 6) {
         headerHeight.value = scrollTop.value + 64 + 6;
-        headerMarginBottom.value = 104 - scrollTop.value;
-    } else if (scrollTop.value < 104) {
-        headerHeight.value = 168;
+        headerMarginBottom.value = 188 - 64 - scrollTop.value;
+    } else if (scrollTop.value < 188 - 64) {
+        headerHeight.value = 188;
 
         headerMarginBottom.value = 0;
     }
+    lastScrollTop.value = scrollTop.value <= 0 ? 0 : scrollTop.value;
 };
 
 // 处理鼠标移入导航栏效果
@@ -110,22 +116,33 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <!-- <div class="fixed left-0 top-64">
-        <p>{{ navUiRect }}</p>
+    <div class="fixed left-0 top-64">
+        <!-- <p>{{ navUiRect }}</p> -->
         <p>{{ headerStyle }}</p>
         <p>头高度：{{ headerHeight }}\头外下边距{{ headerMarginBottom }}</p>
         <p>滚动高度：{{ scrollTop }}</p>
-    </div> -->
+    </div>
     <ContentWrap>
-        <header class="z-50 flex flex-col" :style="headerStyle">
+        <header class="z-50 flex flex-col pb-5" :style="headerStyle">
             <div class="order-last mt-16"></div>
             <div class="order-last">
-                <a aria-label="主页" class="block size-full pointer-events-auto" href="/">
-                    <img ref="iconUi" src="images/icon/9yan.webp" alt="9yan" class="size-10 rounded-xl" style="transform: scale(2)" />
+                <a aria-label="主页" class="block size-full ml-5 pointer-events-auto" href="/">
+                    <img
+                        ref="iconUi"
+                        src="images/icon/9yan.webp"
+                        alt="9yan"
+                        class="size-10 rounded-xl"
+                        :class="iconOpacity ? 'opacity-1' : 'opacity-0'"
+                        style="transform: scale(2)"
+                    />
                 </a>
             </div>
             <nav class="sticky top-0 z-10 h-16 pt-6 flex">
-                <div class="flex flex-1 opacity-100 transform-none"></div>
+                <div class="flex flex-1 opacity-100 transform-none">
+                    <a aria-label="主页" class="block size-full ml-5 pointer-events-auto" href="/">
+                        <img src="images/icon/9yan.webp" alt="9yan" class="size-10 rounded-xl" :class="iconOpacity ? 'opacity-0' : 'opacity-1'" />
+                    </a>
+                </div>
                 <ul
                     ref="navUi"
                     @mousemove="handleMouseMove"
