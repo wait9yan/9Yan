@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-26 14:02:10
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-01 19:00:01
+ * @LastEditTime : 2024-04-02 08:26:15
  * @FilePath     : \9Yan\src\components\TheNavigator.vue
  * @Description  : 头部
 -->
@@ -28,7 +28,7 @@
                     />
                     <h1
                         ref="iconUiArt"
-                        class="inline-block h-10 text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
+                        class="inline-block h-10 text-lg sm:text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
                         :class="iconOpacity ? '' : 'hidden'"
                         style="transform: scale(2) translateX(2.25em)"
                     >
@@ -41,7 +41,7 @@
                     <a aria-label="主页" class="flex pointer-events-auto" @click="scrollToTop">
                         <img src="images/icon/9yan.webp" alt="9yan" class="inline-block size-10 rounded-xl" :class="iconOpacity ? 'hidden' : ''" />
                         <h1
-                            class="inline-block text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
+                            class="inline-block h-10 text-lg sm:text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
                             :class="iconOpacity ? 'hidden' : ''"
                             style="transform: translateX(0.25em)"
                         >
@@ -52,7 +52,7 @@
                 <ul
                     ref="navUi"
                     @mousemove="handleMouseMove"
-                    class="group relative max-w-md h-10 my-auto px-5 rounded-xl hidden sm:flex bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200 ring-1 ring-slate-900/5 shadow-lg shadow-slate-800/5"
+                    class="group relative max-w-md h-10 my-auto px-5 rounded-xl hidden sm:flex bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200 ring-1 ring-slate-960/5 shadow-lg shadow-slate-800/5"
                 >
                     <div
                         class="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -107,7 +107,7 @@ let navUiRect = ref(null); // 导航栏UI位置
 let navUiMouseRelativeX = ref(0); // 导航栏鼠标效果相对x坐标
 let navUiMouseRelativeY = ref(0); // 导航栏鼠标效果相对y坐标
 
-let headerHeight = ref(188); // 头高度
+let headerHeight = ref(200); // 头高度
 let headerMarginBottom = ref(null); //头外下边距
 let headerStyle = ref(null); //头样式
 
@@ -123,7 +123,7 @@ const handleScroll = () => {
     }
     iconUiLogo.value.style.transform = `scale(${iconUiScale.value}) translate(${iconUiLogoX.value}em)`;
     iconUiArt.value.style.transform = `scale(${iconUiScale.value}) translateX(${iconUiArtX.value}em)`;
-    if (scrollTop.value > 188 - 84) {
+    if (scrollTop.value > 200 - 96) {
         iconOpacity.value = false;
     } else {
         iconOpacity.value = true;
@@ -143,19 +143,19 @@ const handleScroll = () => {
 };
 
 const ScrollDown = () => {
-    if (scrollTop.value > 188 && navUiRect.value.bottom < 0) {
+    if (scrollTop.value > 200 && navUiRect.value.bottom < 0) {
         headerHeight.value = scrollTop.value;
-        headerMarginBottom.value = 188 - scrollTop.value;
+        headerMarginBottom.value = 200 - scrollTop.value;
     }
     lastScrollTop.value = scrollTop.value <= 0 ? 0 : scrollTop.value;
 };
 
 const ScrollUp = () => {
-    if (scrollTop.value > 188 - 84 && headerHeight.value > scrollTop.value + 84) {
-        headerHeight.value = scrollTop.value + 84;
-        headerMarginBottom.value = 188 - 84 - scrollTop.value;
-    } else if (scrollTop.value < 188 - 84) {
-        headerHeight.value = 188;
+    if (scrollTop.value > 200 - 96 && headerHeight.value > scrollTop.value + 96) {
+        headerHeight.value = scrollTop.value + 96;
+        headerMarginBottom.value = 200 - 96 - scrollTop.value;
+    } else if (scrollTop.value < 200 - 96) {
+        headerHeight.value = 200;
 
         headerMarginBottom.value = 0;
     }
