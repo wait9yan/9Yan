@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-26 14:02:10
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-02 08:26:15
+ * @LastEditTime : 2024-04-03 13:05:19
  * @FilePath     : \9Yan\src\components\TheNavigator.vue
  * @Description  : 头部
 -->
@@ -20,7 +20,7 @@
                 <a aria-label="主页" class="flex pointer-events-auto" @click="scrollToTop">
                     <img
                         ref="iconUiLogo"
-                        src="images/icon/9yan.webp"
+                        src="/images/icon/9yan.webp"
                         alt="9yan"
                         class="inline-block size-10 rounded-xl"
                         :class="iconOpacity ? '' : 'hidden'"
@@ -39,7 +39,7 @@
             <nav class="sticky top-0 z-10 h-16 pt-6 flex">
                 <div class="flex flex-1 opacity-100 transform-none">
                     <a aria-label="主页" class="flex pointer-events-auto" @click="scrollToTop">
-                        <img src="images/icon/9yan.webp" alt="9yan" class="inline-block size-10 rounded-xl" :class="iconOpacity ? 'hidden' : ''" />
+                        <img src="/images/icon/9yan.webp" alt="9yan" class="inline-block size-10 rounded-xl" :class="iconOpacity ? 'hidden' : ''" />
                         <h1
                             class="inline-block h-10 text-lg sm:text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
                             :class="iconOpacity ? 'hidden' : ''"
@@ -71,7 +71,7 @@
                     </li>
                 </ul>
                 <div class="flex justify-end gap-3 sm:flex-1 opacity-100 transform-none">
-                    <BaseButton disabled class="size-10">
+                    <BaseButton disabled class="size-10" label="test">
                         <IconLogin class="size-5" />
                     </BaseButton>
                     <BaseButton disabled class="size-10">

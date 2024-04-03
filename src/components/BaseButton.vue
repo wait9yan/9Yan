@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-29 09:59:53
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-02 11:19:12
+ * @LastEditTime : 2024-04-02 21:29:35
  * @FilePath     : \9Yan\src\components\BaseButton.vue
  * @Description  : 
 -->
@@ -67,6 +67,8 @@ const computedType = computed(() => {
 
 const componentClass = computed(() => {
     const base = [
+        'group',
+        'relative',
         'inline-flex justify-center items-center',
         // 'whitespace-nowrap',
         'bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200',
@@ -82,6 +84,22 @@ const componentClass = computed(() => {
         base.push(props.outline ? 'opacity-50' : 'opacity-70');
     }
 
+    return base;
+});
+
+const labelClass = computed(() => {
+    const base = [
+        'absolute',
+        'inset-x-0',
+        'h-10 w-10',
+        'bottom-[-3em]',
+        'inline-flex justify-center items-center',
+        'rounded-xl',
+        'hidden',
+        'group-hover:block',
+        'transition-colors',
+        'duration-150',
+    ];
     return base;
 });
 </script>

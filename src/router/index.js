@@ -2,14 +2,14 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-24 21:09:19
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-03-28 14:36:25
+ * @LastEditTime : 2024-04-03 13:44:51
  * @FilePath     : \9Yan\src\router\index.js
- * @Description  : 
+ * @Description  :
  */
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(),
     routes: [
         {
             path: '/home',
@@ -36,6 +36,9 @@ const router = createRouter({
             component: () => import('@/views/AboutView.vue'),
         },
     ],
+    scrollBehavior(to, from, savedPosition) {
+        return savedPosition || { top: 0 };
+    },
 });
 
 export default router;

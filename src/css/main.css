@@ -11,7 +11,7 @@
     @font-face {
         font-family: art-regular;
         font-weight: 400;
-        src: url(/public/font/Pacifico-Regular-all.ttf) format('truetype');
+        src: url(/font/Pacifico-Regular-all.ttf) format('truetype');
     }
 }
 

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "QQ",
+        "icon": "/images/icon/qq.svg",
+        "tip": "有什么事吗",
+        "url": "https://res.abeim.cn/api/qq/?qq=2955166213"
+    },
+    {
+        "name": "Email",
+        "icon": "/images/icon/mail.svg",
+        "tip": "来封 Email ~",
+        "url": "mailto:wait9yan@qq.com"
+    },
+    {
+        "name": "Telegram",
+        "icon": "/images/icon/telegram.svg",
+        "tip": "你懂的 ~",
+        "url": "https://t.me/2yan"
+    }
+]

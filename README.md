@@ -1,6 +1,6 @@
 <img src="public/images/icon/favicon.ico" width="128" align="right">
 
-# Wait9Yan
+# 9Yan
 
 ![Vue](https://img.shields.io/badge/Vue-40AA7F) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8)
 
