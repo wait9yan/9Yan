@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-24 21:09:19
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-03 13:44:51
+ * @LastEditTime : 2024-04-03 20:16:41
  * @FilePath     : \9Yan\src\router\index.js
  * @Description  :
  */
@@ -18,17 +18,17 @@ const router = createRouter({
         {
             path: '/',
             name: 'home',
-            component: import('@/views/HomeView.vue'),
+            component: () => import('@/views/HomeView.vue'),
         },
         {
             path: '/article',
             name: 'article',
-            component: import('@/views/ArticleView.vue'),
+            component: () => import('@/views/ArticleView.vue'),
         },
         {
             path: '/work',
             name: 'work',
-            component: import('@/views/WorkView.vue'),
+            component: () => import('@/views/WorkView.vue'),
         },
         {
             path: '/about',
