@@ -2,99 +2,29 @@
  * @Author       : wait9yan
  * @Date         : 2024-04-03 00:13:45
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-03 00:34:56
- * @FilePath     : \9Yan\src\components\SocialLinks.vue
- * @Description  : 
+ * @LastEditTime : 2024-04-09 23:48:26
+ * @FilePath     : \9Yan\src\components\MysocialLinks.vue
+ * @Description  : 社交链接
 -->
-<template>
-    <!-- 社交链接 -->
-    <div class="social">
-        <div class="link">
-            <a
-                v-for="item in socialLinks"
-                :key="item.name"
-                :href="item.url"
-                target="_blank"
-                @mouseenter="socialTip = item.tip"
-                @mouseleave="socialTip = '通过这里联系我吧'"
-            >
-                <img class="icon" :src="item.icon" height="24" />
-            </a>
-        </div>
-        <span class="tip">{{ socialTip }}</span>
-    </div>
-</template>
-
 <script setup>
 import { ref } from 'vue';
 
+import BaseSvg from '@/components/BaseSvg.vue';
+
 import socialLinks from '@/assets/socialLinks.json';
 
-// 社交链接提示
-const socialTip = ref('通过这里联系我吧');
+const socialTip = ref(null);
 </script>
 
-<style scoped>
-@media (max-width: 840px) {
-    .social {
-        max-width: 100%;
-        justify-content: center;
-    }
-    .social .link {
-        justify-content: space-evenly !important;
-        width: 90%;
-    }
-    .social .tip {
-        display: none !important;
-    }
-}
-@media (min-width: 768px) {
-    .social:hover {
-        background-color: #00000040;
-        backdrop-filter: blur(5px);
-    }
-    .social:hover .tip {
-        display: block;
-    }
-}
-
-.social {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 460px;
-    width: 100%;
-    height: 42px;
-    background-color: transparent;
-    border-radius: 6px;
-    backdrop-filter: blur(0);
-    animation: fade 0.5s;
-    transition:
-        background-color 0.3s,
-        backdrop-filter 0.3s;
-}
-.social .link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.social .link a {
-    display: inherit;
-}
-.social .link a .icon {
-    margin: 0 12px;
-    transition: transform 0.3s;
-}
-.social .link a .icon:hover {
-    transform: scale(1.1);
-}
-.social .link a .icon:active {
-    transform: scale(1);
-}
-.social .tip {
-    display: none;
-    margin-right: 12px;
-    animation: fade 0.5s;
-}
-</style>
+<template>
+    <div
+        class="flex justify-between items-center w-full h-14 px-3 bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200 ring-1 ring-slate-900/5 shadow-lg shadow-slate-800/5 rounded-xl"
+    >
+        <div class="flex justify-center md:justify-start items-center w-full">
+            <a v-for="item in socialLinks" :key="item.name" :href="item.url" target="_blank" @mouseenter="socialTip = item.tip" @mouseleave="socialTip = ''">
+                <BaseSvg class="w-8 h-8 mx-1.5 transition-transform hover:scale-110 duration-300" :name="item.name" />
+            </a>
+        </div>
+        <span class="mx-1.5 hidden md:inline-block text-nowrap">{{ socialTip }}</span>
+    </div>
+</template>

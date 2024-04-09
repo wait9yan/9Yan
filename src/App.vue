@@ -1,3 +1,11 @@
+<!--
+ * @Author       : wait9yan
+ * @Date         : 2024-03-24 21:09:19
+ * @LastEditors  : wait9yan
+ * @LastEditTime : 2024-04-09 15:54:20
+ * @FilePath     : \9Yan\src\App.vue
+ * @Description  : 
+-->
 <template>
     <RouterView />
 </template>
@@ -6,21 +14,24 @@
 import { onMounted, onUnmounted } from 'vue';
 import { RouterView } from 'vue-router';
 import { useMainStore } from '@/stores/main';
-import { storeToRefs } from 'pinia';
 
 const mainStore = useMainStore();
-let { scrollTop } = storeToRefs(mainStore);
 
-// 处理滚动时获取页面顶部高度
 const handleScroll = () => {
-    scrollTop.value = document.documentElement.scrollTop;
+    mainStore.scrollTop = document.documentElement.scrollTop;
+};
+
+const handleResize = () => {
+    mainStore.innerHeight = window.innerHeight;
 };
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
 });
 
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener('resize', handleResize);
 });
 </script>

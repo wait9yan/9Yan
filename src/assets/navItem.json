@@ -1,0 +1,18 @@
+[
+    {
+        "to": "/home",
+        "label": "首页"
+    },
+    {
+        "to": "/blog",
+        "label": "文章"
+    },
+    {
+        "to": "/work",
+        "label": "项目"
+    },
+    {
+        "to": "/about",
+        "label": "自述"
+    }
+]

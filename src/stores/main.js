@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-26 09:56:18
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-03-31 22:31:34
+ * @LastEditTime : 2024-04-09 19:40:14
  * @FilePath     : \9Yan\src\stores\main.js
  * @Description  :
  */
@@ -10,11 +10,11 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useMainStore = defineStore('main', () => {
-    const coverType = ref(0); // 壁纸种类
-    const imgLoadStatus = ref(false); // 壁纸加载状态
-    const backgroundShow = ref(false); // 壁纸展示状态
-    const innerWidth = ref(null); // 当前窗口宽度
+    const innerHeight = ref(window.innerHeight); // 页面高度
     const scrollTop = ref(0); // 页面顶部高度
+    const coverType = ref(0); // 壁纸种类
+    const bgLoadStatus = ref(false); // 壁纸加载状态
+    const bgShow = ref(false); // 壁纸展示状态
     const siteStartShow = ref(false); // 建站日期显示
 
     // // 获取页面宽度
@@ -32,16 +32,16 @@ export const useMainStore = defineStore('main', () => {
     // }
 
     // // 更改壁纸加载状态
-    // function setImgLoadStatus(value) {
-    //     this.imgLoadStatus = value;
+    // function setbgLoadStatus(value) {
+    //     this.bgLoadStatus = value;
     // }
 
     return {
-        coverType,
-        imgLoadStatus,
-        backgroundShow,
-        innerWidth,
+        innerHeight,
         scrollTop,
+        coverType,
+        bgLoadStatus,
+        bgShow,
         siteStartShow,
     };
 });

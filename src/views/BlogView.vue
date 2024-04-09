@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-24 21:09:19
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-03-31 20:49:20
+ * @LastEditTime : 2024-04-09 19:47:50
  * @FilePath     : \9Yan\src\views\ArticleView.vue
  * @Description  : 
 -->
@@ -12,9 +12,8 @@ import ContentWrap from '@/components/ContentWrap.vue';
 </script>
 <template>
     <TheLayout>
-        文章
         <ContentWrap class="h-screen">
-            <HomeContent></HomeContent>
+            <HomeContent>文章</HomeContent>
             <HomeAside></HomeAside>
         </ContentWrap>
     </TheLayout>

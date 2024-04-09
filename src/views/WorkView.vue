@@ -1,9 +1,9 @@
 <!--
  * @Author       : wait9yan
- * @Date         : 2024-03-24 21:09:19
+ * @Date         : 2024-03-28 14:25:34
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-03-31 20:48:48
- * @FilePath     : \9Yan\src\views\WorkView.vue
+ * @LastEditTime : 2024-04-09 21:24:54
+ * @FilePath     : \9Yan\src\views\BlogView.vue
  * @Description  : 
 -->
 <script setup>
@@ -12,10 +12,8 @@ import ContentWrap from '@/components/ContentWrap.vue';
 </script>
 <template>
     <TheLayout>
-        <img src="https://ghchart.rshah.org/wait9yan" alt="wait9yan Green Github Chart" />
-
         <ContentWrap class="h-screen">
-            <HomeContent></HomeContent>
+            <HomeContent><img src="https://ghchart.rshah.org/wait9yan" alt="wait9yan Green Github Chart" /></HomeContent>
             <HomeAside></HomeAside>
         </ContentWrap>
     </TheLayout>

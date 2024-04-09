@@ -1,20 +1,20 @@
 [
     {
-        "name": "QQ",
-        "icon": "/images/icon/qq.svg",
+        "name": "qq",
+        "label": "QQ",
         "tip": "有什么事吗",
-        "url": "https://res.abeim.cn/api/qq/?qq=2955166213"
+        "url": "http://wpa.qq.com/msgrd?v=3&uin=2955166213&site=qq&menu=yes"
     },
     {
-        "name": "Email",
-        "icon": "/images/icon/mail.svg",
+        "name": "mail",
+        "label": "Email",
         "tip": "来封 Email ~",
         "url": "mailto:wait9yan@qq.com"
     },
     {
-        "name": "Telegram",
-        "icon": "/images/icon/telegram.svg",
+        "name": "telegram",
+        "label": "Telegram",
         "tip": "你懂的 ~",
-        "url": "https://t.me/2yan"
+        "url": "https://t.me/Wait9Yan2"
     }
 ]

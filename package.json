@@ -26,6 +26,7 @@
         "prettier": "^3.0.3",
         "tailwindcss": "^3.4.1",
         "vite": "^5.1.6",
+        "vite-plugin-svg-icons": "^2.0.1",
         "vite-plugin-vue-devtools": "^7.0.18"
     }
 }
