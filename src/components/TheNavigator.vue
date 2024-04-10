@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-26 14:02:10
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-09 19:59:09
+ * @LastEditTime : 2024-04-10 16:36:41
  * @FilePath     : \9Yan\src\components\TheNavigator.vue
  * @Description  : 头部
 -->
@@ -13,9 +13,8 @@ import { useMainStore } from '@/stores/main';
 
 import ContentWrap from '@/components/ContentWrap.vue';
 import BaseButton from '@/components/BaseButton.vue';
+import BaseSvg from '@/components/BaseSvg.vue';
 
-import IconLogin from '@/components/icons/IconLogin.vue';
-import IconLightDark from '@/components/icons/IconLightDark.vue';
 import navItem from '@/assets/navItem.json';
 
 const mainStore = useMainStore();
@@ -175,10 +174,10 @@ watch(
                 </ul>
                 <div class="flex justify-end gap-3 sm:flex-1 opacity-100 transform-none">
                     <BaseButton disabled class="size-10" label="test">
-                        <IconLogin class="size-5" />
+                        <BaseSvg class="size-5" name="login" />
                     </BaseButton>
                     <BaseButton disabled class="size-10">
-                        <IconLightDark class="size-5" />
+                        <BaseSvg class="size-5" name="light-dark" />
                     </BaseButton>
                 </div>
             </nav>

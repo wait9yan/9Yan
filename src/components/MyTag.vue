@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-04-02 21:37:52
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-09 21:04:28
+ * @LastEditTime : 2024-04-10 17:04:38
  * @FilePath     : \9Yan\src\components\MyTag.vue
  * @Description  : 
 -->
@@ -26,18 +26,19 @@
         <span class="block h-2"></span>
 
         <span class="group inline-flex">
-            <IconGoogleDown class="group-hover:animate-bounce duration-300" />
+            <!-- <IconGoogleDown class="group-hover:animate-bounce duration-300" /> -->
+            <BaseSvg name="google-down" class="group-hover:animate-bounce duration-300" />
             实习生，</span
         >
 
         <span class="group inline-flex">
-            <IconDetails class="group-hover:fill-zinc-400 group-hover:rotate-180 duration-300" />
+            <!-- <IconDetails class="group-hover:fill-zinc-400 group-hover:rotate-180 duration-300" /> -->
+            <BaseSvg name="details" class="group-hover:fill-zinc-400 group-hover:rotate-180 duration-300" />
             细节控</span
         >
     </h1>
 </template>
 
 <script setup>
-import IconGoogleDown from '@/components/icons/IconGoogleDown.vue';
-import IconDetails from '@/components/icons/IconDetails.vue';
+import BaseSvg from '@/components/BaseSvg.vue';
 </script>

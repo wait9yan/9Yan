@@ -2,8 +2,8 @@
  * @Author       : wait9yan
  * @Date         : 2024-04-03 00:13:45
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-09 23:48:26
- * @FilePath     : \9Yan\src\components\MysocialLinks.vue
+ * @LastEditTime : 2024-04-10 17:07:32
+ * @FilePath     : \9Yan\src\components\MySocialLinks.vue
  * @Description  : 社交链接
 -->
 <script setup>
@@ -22,7 +22,7 @@ const socialTip = ref(null);
     >
         <div class="flex justify-center md:justify-start items-center w-full">
             <a v-for="item in socialLinks" :key="item.name" :href="item.url" target="_blank" @mouseenter="socialTip = item.tip" @mouseleave="socialTip = ''">
-                <BaseSvg class="w-8 h-8 mx-1.5 transition-transform hover:scale-110 duration-300" :name="item.name" />
+                <BaseSvg class="size-8 mx-1.5 transition-transform hover:scale-110 duration-300" :name="item.name" />
             </a>
         </div>
         <span class="mx-1.5 hidden md:inline-block text-nowrap">{{ socialTip }}</span>
