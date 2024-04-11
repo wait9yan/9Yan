@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-30 15:22:02
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-09 16:10:41
+ * @LastEditTime : 2024-04-11 17:34:41
  * @FilePath     : \9Yan\src\components\HomeBackground.vue
  * @Description  : 
 -->
@@ -39,7 +39,7 @@ const changeBg = (type) => {
 const handleScroll = (scrollTop) => {
     bg.value = {
         'background-image': `url(${bgUrl.value})`,
-        opacity: (mainStore.innerHeight - scrollTop) / mainStore.innerHeight,
+        opacity: ((mainStore.innerHeight - scrollTop * 1.5) / mainStore.innerHeight) * 2,
     };
 };
 

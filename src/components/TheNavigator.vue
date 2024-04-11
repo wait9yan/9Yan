@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-26 14:02:10
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-10 16:36:41
+ * @LastEditTime : 2024-04-11 16:38:15
  * @FilePath     : \9Yan\src\components\TheNavigator.vue
  * @Description  : 头部
 -->
@@ -10,6 +10,7 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { useMainStore } from '@/stores/main';
+// import { useRouter } from 'vue-router';
 
 import ContentWrap from '@/components/ContentWrap.vue';
 import BaseButton from '@/components/BaseButton.vue';
@@ -18,6 +19,7 @@ import BaseSvg from '@/components/BaseSvg.vue';
 import navItem from '@/assets/navItem.json';
 
 const mainStore = useMainStore();
+// const router = useRouter();
 
 let iconOpacity = ref(true); // icon透明度
 let iconUiScale = ref(2); // icon缩放大小
@@ -109,12 +111,6 @@ watch(
 </script>
 
 <template>
-    <!-- <div class="fixed left-0 top-64">
-        <p>{{ navUiRect }}</p>
-        <p>{{ headerStyle }}</p>
-        <p>头高度：{{ headerHeight }}\头外下边距{{ headerMarginBottom }}</p>
-        <p>滚动高度：{{ scrollTop }}</p>
-    </div> -->
     <ContentWrap>
         <header class="z-30 flex flex-col pb-5" :style="headerStyle">
             <div class="order-last mt-16"></div>
@@ -128,33 +124,33 @@ watch(
                         :class="iconOpacity ? '' : 'hidden'"
                         style="transform: scale(2) translateX(0.5em)"
                     />
-                    <h1
+                    <h3
                         ref="iconUiArt"
                         class="inline-block h-10 text-lg sm:text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
                         :class="iconOpacity ? '' : 'hidden'"
                         style="transform: scale(2) translateX(2.25em)"
                     >
                         Wait 9Yan
-                    </h1>
+                    </h3>
                 </a>
             </div>
             <nav class="sticky top-0 z-10 h-16 pt-6 flex">
                 <div class="flex flex-1 opacity-100 transform-none">
                     <a aria-label="主页" class="flex pointer-events-auto" @click="scrollToTop">
                         <img src="/images/icon/9yan.webp" alt="9yan" class="inline-block size-10 rounded-xl" :class="iconOpacity ? 'hidden' : ''" />
-                        <h1
+                        <h3
                             class="inline-block h-10 text-lg sm:text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
                             :class="iconOpacity ? 'hidden' : ''"
                             style="transform: translateX(0.25em)"
                         >
                             Wait 9Yan
-                        </h1>
+                        </h3>
                     </a>
                 </div>
                 <ul
                     ref="navUi"
                     @mousemove="handleMouseMove"
-                    class="group relative max-w-md h-10 my-auto px-5 rounded-xl hidden sm:flex bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200 ring-1 ring-slate-960/5 shadow-lg shadow-slate-800/5"
+                    class="group relative max-w-md h-10 my-auto px-5 rounded-xl hidden sm:flex bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200 ring-1 ring-slate-900/5 shadow-lg shadow-slate-800/5"
                 >
                     <div
                         class="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -164,19 +160,20 @@ watch(
                         aria-hidden="true"
                     ></div>
                     <li v-for="item in navItem" :key="item.index">
-                        <router-link :to="item.to" class="relative block py-2.5 px-4 text-sm"
-                            >{{ item.label }}
+                        <router-link :to="item.to" class="relative block py-2.5 px-4 text-sm hover:text-teal-500">
+                            {{ item.label }}
                             <span
                                 class="group absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-slate-600/0 via-slate-600 to-slate-600/0 opacity-100 transition-opacity"
-                            ></span
-                        ></router-link>
+                                style="transform: none; transform-origin: 50% 50% 0px; opacity: 1"
+                            ></span>
+                        </router-link>
                     </li>
                 </ul>
                 <div class="flex justify-end gap-3 sm:flex-1 opacity-100 transform-none">
-                    <BaseButton disabled class="size-10" label="test">
+                    <BaseButton disabled class="size-10" label="登录">
                         <BaseSvg class="size-5" name="login" />
                     </BaseButton>
-                    <BaseButton disabled class="size-10">
+                    <BaseButton disabled class="size-10" label="浅色模式">
                         <BaseSvg class="size-5" name="light-dark" />
                     </BaseButton>
                 </div>

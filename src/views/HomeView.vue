@@ -2,10 +2,23 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-24 21:09:19
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-09 21:28:24
+ * @LastEditTime : 2024-04-11 21:38:26
  * @FilePath     : \9Yan\src\views\HomeView.vue
  * @Description  : 
 -->
+<script setup>
+import TheLayout from '@/components/TheLayout.vue';
+import HomeBackground from '@/components/HomeBackground.vue';
+import HomeHeaderWarp from '@/components/HomeHeaderWarp.vue';
+import HomeContentWarp from '@/components/HomeContentWarp.vue';
+import MyTag from '@/components/MyTag.vue';
+import MySocialLinks from '@/components/MySocialLinks.vue';
+import baseButton from '@/components/BaseButton.vue';
+import BlogItem from '@/components/BlogItem.vue';
+import BlogCard from '@/components/BlogCard.vue';
+import BaseSubTitle from '@/components/BaseSubTitle.vue';
+import TimeLine from '@/components/TimeLine.vue';
+</script>
 
 <template>
     <TheLayout>
@@ -19,10 +32,10 @@
                 <MySocialLinks class="mt-6" />
             </template>
             <template #mainMiddle>
-                <baseButton>博客</baseButton>
-                <baseButton>Github</baseButton>
-                <baseButton>Bilbili</baseButton>
-                <baseButton>Steam</baseButton>
+                <baseButton to="/blog">博客</baseButton>
+                <baseButton href="https://github.com/wait9yan" target="_blank">Github</baseButton>
+                <baseButton href="https://space.bilibili.com/396767727" target="_blank">Bilbili</baseButton>
+                <baseButton href="https://steamcommunity.com/id/wait9yan" target="_blank">Steam</baseButton>
             </template>
             <template #mainRight>
                 <baseButton class="relative size-full">
@@ -37,26 +50,40 @@
         </HomeHeaderWarp>
         <HomeContentWarp>
             <template #blog>
-                <h2>博客 - Blog</h2>
+                <BaseSubTitle>
+                    <template #en>Blog</template>
+                    <template #cn>博客</template>
+                </BaseSubTitle>
+                <BlogItem />
+                <BlogItem />
+                <BlogItem />
             </template>
             <template #work>
-                <h2>项目 - Work</h2>
+                <BaseSubTitle>
+                    <template #en>Work</template>
+                    <template #cn>项目</template>
+                </BaseSubTitle>
+                <BlogCard />
+                <BlogCard />
+                <BlogCard />
             </template>
             <template #about>
-                <h2>自述 - About</h2>
+                <BaseSubTitle>
+                    <template #en>About</template>
+                    <template #cn>自述</template>
+                </BaseSubTitle>
+                <TimeLine />
             </template>
-            <template #scrollShow>滚动测试</template>
+            <template #scrollShow>
+                <div class="sticky top-2 mx-2 h-[calc(100vh-1rem)]">
+                    <div
+                        class="absolute top-0 left-0 size-full rounded-2xl bg-no-repeat bg-center bg-cover"
+                        style="background-image: url(https://api.dujin.org/bing/1920.php)"
+                    ></div>
+                    <!-- <div class="absolute top-0 left-0 size-full rounded-2xl" style="background-image: url(https://api.aixiaowai.cn/gqapi/gqapi.php)"></div> -->
+                    <!-- <div class="absolute top-0 left-0 size-full rounded-2xl" style="background-image: url(https://api.aixiaowai.cn/api/api.php)"></div> -->
+                </div>
+            </template>
         </HomeContentWarp>
     </TheLayout>
 </template>
-
-<script setup>
-import TheLayout from '@/components/TheLayout.vue';
-import HomeBackground from '@/components/HomeBackground.vue';
-import HomeHeaderWarp from '@/components/HomeHeaderWarp.vue';
-import HomeContentWarp from '@/components/HomeContentWarp.vue';
-import MyTag from '@/components/MyTag.vue';
-import MySocialLinks from '@/components/MySocialLinks.vue';
-import baseButton from '@/components/BaseButton.vue';
-// import CardBox from '@/components/CardBox.vue';
-</script>

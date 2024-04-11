@@ -6,10 +6,6 @@
  * @FilePath     : \9Yan\src\App.vue
  * @Description  : 
 -->
-<template>
-    <RouterView />
-</template>
-
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
 import { RouterView } from 'vue-router';
@@ -35,3 +31,7 @@ onUnmounted(() => {
     window.removeEventListener('resize', handleResize);
 });
 </script>
+
+<template>
+    <RouterView />
+</template>

@@ -1,11 +1,11 @@
 [
     {
-        "to": "/home",
+        "to": "/",
         "label": "首页"
     },
     {
         "to": "/blog",
-        "label": "文章"
+        "label": "博客"
     },
     {
         "to": "/work",
