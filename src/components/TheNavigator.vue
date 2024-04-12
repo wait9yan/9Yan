@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-26 14:02:10
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-11 16:38:15
+ * @LastEditTime : 2024-04-12 14:17:00
  * @FilePath     : \9Yan\src\components\TheNavigator.vue
  * @Description  : 头部
 -->
@@ -115,7 +115,7 @@ watch(
         <header class="z-30 flex flex-col pb-5" :style="headerStyle">
             <div class="order-last mt-16"></div>
             <div class="order-last">
-                <a aria-label="主页" class="flex pointer-events-auto" @click="scrollToTop">
+                <a aria-label="主页" class="pointer-events-auto flex" @click="scrollToTop">
                     <img
                         ref="iconUiLogo"
                         src="/images/icon/9yan.webp"
@@ -126,7 +126,7 @@ watch(
                     />
                     <h3
                         ref="iconUiArt"
-                        class="inline-block h-10 text-lg sm:text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
+                        class="inline-block h-10 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text font-art text-lg leading-10 text-transparent sm:text-2xl"
                         :class="iconOpacity ? '' : 'hidden'"
                         style="transform: scale(2) translateX(2.25em)"
                     >
@@ -134,12 +134,12 @@ watch(
                     </h3>
                 </a>
             </div>
-            <nav class="sticky top-0 z-10 h-16 pt-6 flex">
-                <div class="flex flex-1 opacity-100 transform-none">
-                    <a aria-label="主页" class="flex pointer-events-auto" @click="scrollToTop">
+            <nav class="sticky top-0 z-10 flex h-16 pt-6">
+                <div class="flex flex-1 transform-none opacity-100">
+                    <a aria-label="主页" class="pointer-events-auto flex" @click="scrollToTop">
                         <img src="/images/icon/9yan.webp" alt="9yan" class="inline-block size-10 rounded-xl" :class="iconOpacity ? 'hidden' : ''" />
                         <h3
-                            class="inline-block h-10 text-lg sm:text-2xl leading-10 font-art bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
+                            class="inline-block h-10 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text font-art text-lg leading-10 text-transparent sm:text-2xl"
                             :class="iconOpacity ? 'hidden' : ''"
                             style="transform: translateX(0.25em)"
                         >
@@ -150,17 +150,17 @@ watch(
                 <ul
                     ref="navUi"
                     @mousemove="handleMouseMove"
-                    class="group relative max-w-md h-10 my-auto px-5 rounded-xl hidden sm:flex bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200 ring-1 ring-slate-900/5 shadow-lg shadow-slate-800/5"
+                    class="backdrop-slate-200 group relative my-auto hidden h-10 max-w-md rounded-2xl bg-gradient-to-b from-zinc-200/50 to-white/50 px-5 shadow-lg shadow-slate-800/5 ring-1 ring-slate-900/5 backdrop-blur sm:flex"
                 >
                     <div
-                        class="pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        class="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                         :style="{
                             background: `radial-gradient(154px circle at ${navUiMouseRelativeX}px ${navUiMouseRelativeY}px, #cbd5e1 0%, transparent 65%)`,
                         }"
                         aria-hidden="true"
                     ></div>
                     <li v-for="item in navItem" :key="item.index">
-                        <router-link :to="item.to" class="relative block py-2.5 px-4 text-sm hover:text-teal-500">
+                        <router-link :to="item.to" class="relative block px-4 py-2.5 text-sm hover:text-teal-500">
                             {{ item.label }}
                             <span
                                 class="group absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-slate-600/0 via-slate-600 to-slate-600/0 opacity-100 transition-opacity"
@@ -169,7 +169,7 @@ watch(
                         </router-link>
                     </li>
                 </ul>
-                <div class="flex justify-end gap-3 sm:flex-1 opacity-100 transform-none">
+                <div class="flex transform-none justify-end gap-3 opacity-100 sm:flex-1">
                     <BaseButton disabled class="size-10" label="登录">
                         <BaseSvg class="size-5" name="login" />
                     </BaseButton>

@@ -2,17 +2,24 @@
 @import 'tailwind/_components.css';
 @import 'tailwind/_utilities.css';
 
-:root {
-    --header-position: sticky;
-    --header-color: #444;
-}
-
 @layer base {
     @font-face {
         font-family: art-regular;
         font-weight: 400;
         src: url(/font/Pacifico-Regular-all.ttf) format('truetype');
     }
+    h1 {
+        @apply text-6xl font-black;
+    }
+    h2 {
+        @apply text-4xl font-bold;
+    }
+    h3 {
+        @apply text-2xl font-semibold;
+    }
+}
+
+@layer components {
 }
 
 @keyframes typing-pulse {
@@ -23,4 +30,29 @@
     50% {
         opacity: 0;
     }
+}
+
+:root {
+    --header-position: sticky;
+    --header-color: #444;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+*::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+    display: none;
+}
+*::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+*::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    height: 6px;
+    border-radius: 25px;
+    background-clip: padding-box;
+    background-color: rgba(0, 0, 0, 0.3);
 }

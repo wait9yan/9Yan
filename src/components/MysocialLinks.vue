@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-04-03 00:13:45
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-10 17:07:32
+ * @LastEditTime : 2024-04-12 14:16:46
  * @FilePath     : \9Yan\src\components\MySocialLinks.vue
  * @Description  : 社交链接
 -->
@@ -18,13 +18,13 @@ const socialTip = ref(null);
 
 <template>
     <div
-        class="flex justify-between items-center w-full h-14 px-3 bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200 ring-1 ring-slate-900/5 shadow-lg shadow-slate-800/5 rounded-xl"
+        class="backdrop-slate-200 flex h-14 w-full items-center justify-between rounded-2xl bg-gradient-to-b from-zinc-200/50 to-white/50 px-3 shadow-lg shadow-slate-800/5 ring-1 ring-slate-900/5 backdrop-blur"
     >
-        <div class="flex justify-center md:justify-start items-center w-full">
+        <div class="flex w-full items-center justify-center md:justify-start">
             <a v-for="item in socialLinks" :key="item.name" :href="item.url" target="_blank" @mouseenter="socialTip = item.tip" @mouseleave="socialTip = ''">
-                <BaseSvg class="size-8 mx-1.5 transition-transform hover:scale-110 duration-300" :name="item.name" />
+                <BaseSvg class="mx-1.5 size-8 transition-transform duration-300 hover:scale-110" :name="item.name" />
             </a>
         </div>
-        <span class="mx-1.5 hidden md:inline-block text-nowrap">{{ socialTip }}</span>
+        <span class="mx-1.5 hidden text-nowrap md:inline-block">{{ socialTip }}</span>
     </div>
 </template>

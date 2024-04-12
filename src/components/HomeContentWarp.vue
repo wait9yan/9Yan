@@ -35,20 +35,20 @@ onUnmounted(() => {
 </script>
 <template>
     <div class="flex w-full">
-        <div ref="homeContent" class="basis-1/2 grow h-min">
+        <div ref="homeContent" class="h-min grow basis-1/2">
             <ContentWrap>
-                <div class="min-h-[75vh] flex flex-col justify-center content-center">
+                <div class="flex min-h-[75vh] flex-col content-center justify-center">
                     <slot name="blog" />
                 </div>
-                <div class="min-h-[75vh] flex flex-col justify-center content-center">
+                <div class="flex min-h-[75vh] flex-col content-center justify-center">
                     <slot name="work" />
                 </div>
-                <div class="min-h-[75vh] flex flex-col justify-center content-center">
+                <div class="flex min-h-[75vh] flex-col content-center justify-center">
                     <slot name="about" />
                 </div>
             </ContentWrap>
         </div>
-        <div class="basis-1/2 hidden xl:block h-full" :style="scrollBgStyle">
+        <div class="hidden h-full basis-1/2 xl:block" :style="scrollBgStyle">
             <slot name="scrollShow" />
         </div>
     </div>

@@ -2,47 +2,30 @@
  * @Author       : wait9yan
  * @Date         : 2024-04-10 19:32:54
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-10 19:35:20
+ * @LastEditTime : 2024-04-12 14:07:03
  * @FilePath     : \9Yan\src\components\BlogItem.vue
  * @Description  : 
 -->
+<script setup>
+import BaseTag from '@/components/BaseTag.vue';
+</script>
+
 <template>
-    <div class="relative flex flex-col max-w-2xl p-6 divide-y xl:flex-row xl:divide-y-0 xl:divide-x dark:bg-gray-50 dark:text-gray-800 dark:divide-gray-300">
-        <div class="p-3 space-y-1">
-            <h3 class="text-3xl font-semibold" _msttexthash="543491" _msthash="252">Lorem ipsum dolor sit amet</h3>
-            <p class="text-sm dark:text-gray-600" _msttexthash="164211931" _msthash="253">
-                Lorem ipsum dolor sit amet consectetur， adipisicing elit.Quibusdam possimus repellat incidunt odit eligendi mollitia quaerat autem nobis fugiat
-                natus？
+    <div class="relative flex flex-col divide-y p-6 xl:flex-row xl:divide-x xl:divide-y-0 dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
+        <div class="space-y-1 p-3">
+            <h3>标题</h3>
+            <p class="text-sm dark:text-gray-600">
+                在基本学完前后端开发后，设计并开发一个个人网站来检验所学再合适不过， 虽然曾开发过不少网站，但大都是使用现成的 UI 组件、框架模板。
+                而主页作为个人网站，应表达我的审美、思想与观点，我选择自己设计。
             </p>
         </div>
         <div class="flex items-center gap-3 p-3">
             <div class="space-y-1">
-                <span class="text-xs" _msttexthash="14150058" _msthash="254">四月 03， 2021</span>
+                <span class="text-xs">四月 03， 2021</span>
                 <div class="flex flex-wrap gap-3">
-                    <a
-                        rel="noopener noreferrer"
-                        href="#"
-                        class="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-orange-600 dark:text-gray-50"
-                        _msttexthash="6860035"
-                        _msthash="255"
-                        >JavaScript的</a
-                    >
-                    <a
-                        rel="noopener noreferrer"
-                        href="#"
-                        class="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-orange-600 dark:text-gray-50"
-                        _msttexthash="10467405"
-                        _msthash="256"
-                        >无服务器</a
-                    >
-                    <a
-                        rel="noopener noreferrer"
-                        href="#"
-                        class="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-orange-600 dark:text-gray-50"
-                        _msttexthash="5808322"
-                        _msthash="257"
-                        >AWS公司</a
-                    >
+                    <BaseTag>JavaScript</BaseTag>
+                    <BaseTag>无服务器</BaseTag>
+                    <BaseTag>AWS公司</BaseTag>
                 </div>
             </div>
         </div>

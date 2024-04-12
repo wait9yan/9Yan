@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-29 09:59:53
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-11 22:06:02
+ * @LastEditTime : 2024-04-12 14:20:54
  * @FilePath     : \9Yan\src\components\BaseButton.vue
  * @Description  : 
 -->
@@ -72,9 +72,9 @@ const componentClass = computed(() => {
         // 'whitespace-nowrap',
         'bg-gradient-to-b from-zinc-200/50 to-white/50 hover:to-zinc-200/50 backdrop-blur backdrop-slate-200',
         'ring-1 ring-slate-900/5',
-        'shadow-xl hover:shadow-none shadow-slate-800/5',
+        'shadow-xl hover:shadow-none shadow-slate-800/10',
         props.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-        props.roundedFull ? 'rounded-full' : 'rounded-xl',
+        props.roundedFull ? 'rounded-full' : 'rounded-2xl',
         props.disabled ? 'opacity-80' : 'opacity-100',
         'transition-all',
         'duration-300',

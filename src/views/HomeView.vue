@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-24 21:09:19
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-11 21:38:26
+ * @LastEditTime : 2024-04-12 11:22:01
  * @FilePath     : \9Yan\src\views\HomeView.vue
  * @Description  : 
 -->
@@ -11,12 +11,12 @@ import TheLayout from '@/components/TheLayout.vue';
 import HomeBackground from '@/components/HomeBackground.vue';
 import HomeHeaderWarp from '@/components/HomeHeaderWarp.vue';
 import HomeContentWarp from '@/components/HomeContentWarp.vue';
+import HomeTitle from '@/components/HomeTitle.vue';
 import MyTag from '@/components/MyTag.vue';
 import MySocialLinks from '@/components/MySocialLinks.vue';
-import baseButton from '@/components/BaseButton.vue';
 import BlogItem from '@/components/BlogItem.vue';
+import baseButton from '@/components/BaseButton.vue';
 import BlogCard from '@/components/BlogCard.vue';
-import BaseSubTitle from '@/components/BaseSubTitle.vue';
 import TimeLine from '@/components/TimeLine.vue';
 </script>
 
@@ -39,45 +39,44 @@ import TimeLine from '@/components/TimeLine.vue';
             </template>
             <template #mainRight>
                 <baseButton class="relative size-full">
-                    <div class="absolute top-0 left-0 rounded-xl w-full h-full">
-                        <canvas class="absolute z-99 top-0 left-0 w-full h-full" draggable="false"></canvas>
+                    <div class="absolute left-0 top-0 h-full w-full">
+                        <canvas class="z-99 absolute left-0 top-0 h-full w-full" draggable="false"></canvas>
                         <a><img src="https://webapi.amap.com/theme/v1.3/logo@2x.png" /></a>
                     </div>
-                    <div class="absolute bottom-0 left-0 p-4 rounded-xl font-semibold">HangZhou, China</div>
+                    <div class="absolute bottom-0 left-0 p-4 font-semibold">HangZhou, China</div>
                 </baseButton>
             </template>
             <template #bottom></template>
         </HomeHeaderWarp>
         <HomeContentWarp>
             <template #blog>
-                <BaseSubTitle>
+                <HomeTitle>
                     <template #en>Blog</template>
                     <template #cn>博客</template>
-                </BaseSubTitle>
-                <BlogItem />
+                </HomeTitle>
                 <BlogItem />
                 <BlogItem />
             </template>
             <template #work>
-                <BaseSubTitle>
+                <HomeTitle>
                     <template #en>Work</template>
                     <template #cn>项目</template>
-                </BaseSubTitle>
+                </HomeTitle>
                 <BlogCard />
                 <BlogCard />
                 <BlogCard />
             </template>
             <template #about>
-                <BaseSubTitle>
+                <HomeTitle>
                     <template #en>About</template>
                     <template #cn>自述</template>
-                </BaseSubTitle>
+                </HomeTitle>
                 <TimeLine />
             </template>
             <template #scrollShow>
-                <div class="sticky top-2 mx-2 h-[calc(100vh-1rem)]">
+                <div class="sticky top-0 mx-2 h-screen">
                     <div
-                        class="absolute top-0 left-0 size-full rounded-2xl bg-no-repeat bg-center bg-cover"
+                        class="absolute left-0 top-2 size-full h-[calc(100vh-1rem)] rounded-2xl bg-cover bg-center bg-no-repeat"
                         style="background-image: url(https://api.dujin.org/bing/1920.php)"
                     ></div>
                     <!-- <div class="absolute top-0 left-0 size-full rounded-2xl" style="background-image: url(https://api.aixiaowai.cn/gqapi/gqapi.php)"></div> -->

@@ -14,16 +14,16 @@ import BaseSvg from '@/components/BaseSvg.vue';
 
 <template>
     <ContentWrap>
-        <footer class="text-gray-600 body-font">
-            <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <footer class="body-font text-gray-600">
+            <div class="container mx-auto flex flex-col items-center px-5 py-8 sm:flex-row">
+                <a class="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start">
                     <span class="ml-3 text-xl">9Yan</span>
                 </a>
-                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 By Wait9Yan.</p>
+                <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">© 2024 By Wait9Yan.</p>
 
-                <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <span class="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
                     <a v-for="item in socialLinks" :key="item.name" class="text-gray-500">
-                        <BaseSvg :name="item.name" class="w-6 h-6" />
+                        <BaseSvg :name="item.name" class="h-6 w-6" />
                     </a>
                 </span>
             </div>
