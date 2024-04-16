@@ -2,12 +2,12 @@
  * @Author       : wait9yan
  * @Date         : 2024-04-12 09:15:15
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-12 14:06:01
+ * @LastEditTime : 2024-04-16 23:44:30
  * @FilePath     : \9Yan\src\components\BaseTitle.vue
  * @Description  : 
 -->
 <template>
-    <div>
+    <div class="space-y-3">
         <h2>
             <slot name="title" />
         </h2>

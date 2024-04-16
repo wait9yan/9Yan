@@ -2,13 +2,13 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-30 15:22:02
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-12 10:36:03
+ * @LastEditTime : 2024-04-16 11:11:17
  * @FilePath     : \9Yan\src\components\HomeBackground.vue
  * @Description  : 
 -->
 <script setup>
 import { useMainStore } from '@/stores/main';
-import { ref, watch, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 
 const mainStore = useMainStore();
 
@@ -22,7 +22,7 @@ const bgRandom = Math.floor(Math.random() * 10 + 1);
 // 更换壁纸链接
 const changeBg = (type) => {
     if (type == 0) {
-        bgUrl.value = `/images/background${bgRandom}.webp`;
+        bgUrl.value = `/images/bg-home-${bgRandom}.webp`;
     } else if (type == 1) {
         bgUrl.value = 'https://api.dujin.org/bing/1920.php';
     } else if (type == 2) {
@@ -34,6 +34,25 @@ const changeBg = (type) => {
         'background-image': `url(${bgUrl.value})`,
         opacity: 1,
     };
+};
+
+const HomeBackgroundHeight = ref(null);
+
+const HomeBackgroundClass = computed(() => {
+    const base = [];
+    base.push(mainStore.bgShow ? 'z-50' : 'z-[-1]');
+    if (mainStore.innerHeight >= 200 + 183 + 224) {
+        base.push(`h-[calc(100vh+1rem)]`);
+    } else {
+        base.push(`h-[calc(607px+1rem)]`);
+    }
+    return base;
+});
+
+const handleResize = (innerHeight) => {
+    if (innerHeight >= 200 + 183 + 224) {
+        HomeBackgroundHeight.value = innerHeight;
+    }
 };
 
 // const handleScroll = (scrollTop) => {
@@ -62,7 +81,13 @@ watch(
 onMounted(() => {
     // 加载壁纸
     changeBg(mainStore.coverType);
+    handleResize(mainStore.innerHeight);
 });
+
+watch(
+    () => mainStore.innerHeight,
+    (innerHeight) => handleResize(innerHeight)
+);
 
 onBeforeUnmount(() => {
     clearTimeout(imgTimeout.value);
@@ -70,7 +95,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="absolute left-0 top-0 h-[calc(100vh+1rem)] w-full" :class="mainStore.bgShow ? 'z-50' : 'z-[-1]'" style="filter: brightness(75%)">
+    <div class="absolute left-0 top-0 w-full" :class="HomeBackgroundClass" style="filter: brightness(75%)">
         <div class="absolute left-0 top-0 size-full rounded-b-2xl bg-cover bg-center bg-no-repeat" :style="bg"></div>
     </div>
 </template>

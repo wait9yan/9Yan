@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-04-09 19:34:15
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-11 22:05:48
+ * @LastEditTime : 2024-04-16 23:01:14
  * @FilePath     : \9Yan\src\components\HomeContentWarp.vue
  * @Description  : 
 -->
@@ -35,20 +35,24 @@ onUnmounted(() => {
 </script>
 <template>
     <div class="flex w-full">
-        <div ref="homeContent" class="h-min grow basis-1/2">
+        <div ref="homeContent" class="h-min w-full xl:w-1/2">
             <ContentWrap>
                 <div class="flex min-h-[75vh] flex-col content-center justify-center">
                     <slot name="blog" />
                 </div>
+            </ContentWrap>
+            <ContentWrap>
                 <div class="flex min-h-[75vh] flex-col content-center justify-center">
                     <slot name="work" />
                 </div>
+            </ContentWrap>
+            <ContentWrap>
                 <div class="flex min-h-[75vh] flex-col content-center justify-center">
                     <slot name="about" />
                 </div>
             </ContentWrap>
         </div>
-        <div class="hidden h-full basis-1/2 xl:block" :style="scrollBgStyle">
+        <div class="hidden h-full w-1/2 xl:block" :style="scrollBgStyle">
             <slot name="scrollShow" />
         </div>
     </div>

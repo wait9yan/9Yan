@@ -20,6 +20,17 @@
 }
 
 @layer components {
+    .box {
+        @apply rounded-2xl p-1;
+    }
+
+    .box-bg {
+        @apply bg-gradient-to-b from-zinc-200/50 to-white/50 shadow-xl shadow-slate-800/10 ring-1 ring-slate-900/5 backdrop-blur;
+    }
+
+    .box-btn {
+        @apply hover:to-zinc-200/50 hover:shadow-none;
+    }
 }
 
 @keyframes typing-pulse {
@@ -37,22 +48,35 @@
     --header-color: #444;
 }
 
-*::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+    border-radius: 8px;
 }
-*::-webkit-scrollbar-button {
-    width: 0px;
-    height: 0px;
+::-webkit-scrollbar-track-piece {
+    width: 24px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:vertical {
+    width: 24px;
+    height: 24px;
+    background: rgba(214, 212, 212, 0.3);
+    border-radius: 8px;
+    border: 1px solid #9c9c9c;
+}
+::-webkit-scrollbar-thumb:horizontal {
+    width: 24px;
+    height: 24px;
+    background: rgba(214, 212, 212, 0.3);
+    border-radius: 8px;
+    border: 1px solid #9c9c9c;
+}
+::-webkit-scrollbar-button {
     display: none;
 }
-*::-webkit-scrollbar-corner {
-    background-color: transparent;
-}
-*::-webkit-scrollbar-thumb {
-    border: 4px solid rgba(0, 0, 0, 0);
-    height: 6px;
-    border-radius: 25px;
-    background-clip: padding-box;
-    background-color: rgba(0, 0, 0, 0.3);
+::-webkit-scrollbar-corner {
+    display: none;
 }

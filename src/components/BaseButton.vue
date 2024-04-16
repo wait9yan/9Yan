@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-29 09:59:53
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-12 14:20:54
+ * @LastEditTime : 2024-04-16 17:49:46
  * @FilePath     : \9Yan\src\components\BaseButton.vue
  * @Description  : 
 -->
@@ -35,7 +35,6 @@ const props = defineProps({
         type: String,
         default: null,
     },
-    roundedFull: Boolean,
 });
 
 const is = computed(() => {
@@ -70,11 +69,8 @@ const componentClass = computed(() => {
         'relative',
         'inline-flex justify-center items-center',
         // 'whitespace-nowrap',
-        'bg-gradient-to-b from-zinc-200/50 to-white/50 hover:to-zinc-200/50 backdrop-blur backdrop-slate-200',
-        'ring-1 ring-slate-900/5',
-        'shadow-xl hover:shadow-none shadow-slate-800/10',
+        'box box-bg box-btn',
         props.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-        props.roundedFull ? 'rounded-full' : 'rounded-2xl',
         props.disabled ? 'opacity-80' : 'opacity-100',
         'transition-all',
         'duration-300',
@@ -86,7 +82,7 @@ const labelClass = computed(() => {
     const base = [
         'absolute',
         'px-2 py-1',
-        'bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur backdrop-slate-200',
+        'bg-gradient-to-b from-zinc-200/50 to-white/50 backdrop-blur',
         'ring-1 ring-slate-900/5',
         'shadow-lg shadow-slate-800/5',
         'text-sm',

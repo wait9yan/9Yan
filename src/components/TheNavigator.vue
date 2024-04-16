@@ -2,7 +2,7 @@
  * @Author       : wait9yan
  * @Date         : 2024-03-26 14:02:10
  * @LastEditors  : wait9yan
- * @LastEditTime : 2024-04-12 14:17:00
+ * @LastEditTime : 2024-04-16 18:03:17
  * @FilePath     : \9Yan\src\components\TheNavigator.vue
  * @Description  : 头部
 -->
@@ -147,11 +147,7 @@ watch(
                         </h3>
                     </a>
                 </div>
-                <ul
-                    ref="navUi"
-                    @mousemove="handleMouseMove"
-                    class="backdrop-slate-200 group relative my-auto hidden h-10 max-w-md rounded-2xl bg-gradient-to-b from-zinc-200/50 to-white/50 px-5 shadow-lg shadow-slate-800/5 ring-1 ring-slate-900/5 backdrop-blur sm:flex"
-                >
+                <ul ref="navUi" @mousemove="handleMouseMove" class="box-bg group relative my-auto hidden h-10 max-w-md rounded-2xl px-5 sm:flex">
                     <div
                         class="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                         :style="{
@@ -160,7 +156,7 @@ watch(
                         aria-hidden="true"
                     ></div>
                     <li v-for="item in navItem" :key="item.index">
-                        <router-link :to="item.to" class="relative block px-4 py-2.5 text-sm hover:text-teal-500">
+                        <router-link :to="item.to" class="relative flex h-full w-16 items-center justify-center text-sm hover:text-teal-500">
                             {{ item.label }}
                             <span
                                 class="group absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-slate-600/0 via-slate-600 to-slate-600/0 opacity-100 transition-opacity"
