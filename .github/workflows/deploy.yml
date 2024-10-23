@@ -27,12 +27,10 @@ jobs:
           
       - name: npm install and build
         run: |
-          npm install
-          npm run docs:build
           ls
           pwd
-          ls -R ./docs/ || echo "Dist directory not found"
-          ls -R ./docs/.vitepress/ || echo "Dist directory not found"
+          npm install
+          npm run build
         env:
           CI: true
 
