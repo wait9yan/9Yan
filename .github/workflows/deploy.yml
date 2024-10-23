@@ -27,10 +27,10 @@ jobs:
           
       - name: npm install and build
         run: |
-          npm install
-          npm run build
           ls
           pwd
+          npm install
+          npm run build
         env:
           CI: true
 
