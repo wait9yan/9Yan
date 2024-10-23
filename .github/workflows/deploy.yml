@@ -1,0 +1,38 @@
+name: deploy to production
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.9]
+
+    steps:
+      - name: read code
+        uses: actions/checkout@v4
+        
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: npm install and build
+        run: |
+          npm install
+          npm run docs:build
+          ls
+          pwd
+          ls -R ./docs/ || echo "Dist directory not found"
+          ls -R ./docs/.vitepress/ || echo "Dist directory not found"
+        env:
+          CI: true
+
