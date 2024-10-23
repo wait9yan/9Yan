@@ -1,8 +1,8 @@
 /*!
  * @Author       : wait9yan
  * @Date         : 2024-03-24 21:09:19
- * @LastEditors  : wait9Yan
- * @LastEditTime : 2024-10-23 10:53:18
+ * @LastEditors  : wait9yan
+ * @LastEditTime : 2024-04-14 17:48:31
  * @FilePath     : \9Yan\vite.config.js
  * @Description  :
  */
@@ -32,7 +32,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': '/src',
+            '@': fileURLToPath(new URL('./src', import.meta.url)),
         },
     },
 });
